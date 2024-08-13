@@ -24,7 +24,7 @@ const Navbar = () => {
 
     const [mobileMenu, setMobileMenu] = useState(false);
     const [showCatMenu, setShowCatMenu] = useState(false);
-    const [show, setShow] = useState("translate-y-0");
+    const [show, setShow] = useState("translate-y-0 absolute");
     const [lastScrollY, setLastScrollY] = useState(0);
     const [categories, setCategories] = useState(null);
     const [cartItems, setCartItems] = useState()
@@ -33,15 +33,21 @@ const Navbar = () => {
 
 
     const controlNavbar = () => {
-        if (window.scrollY > 200) {
+
+        if (lastScrollY) {
+            setShow("shadow-sm sticky");
+            setBaground(" bg-white ")
+        }
+
+        if (window.scrollY > 150) {
             if (window.scrollY > lastScrollY && !mobileMenu) {
                 setShow("-translate-y-[80px] ");
             } else {
-                setShow("shadow-sm ");
+                setShow("shadow-sm sticky");
             }
             setBaground(" bg-white ")
         } else {
-            setShow("translate-y-0 ");
+            setShow("translate-y-0 absolute");
             setBaground("md:bg-transparent")
         }
         setLastScrollY(window.scrollY);
@@ -57,7 +63,7 @@ const Navbar = () => {
 
     return (
         <header
-            className={`w-full h-[60px] md:h-[80px] max-md:bg-white flex items-center justify-between z-20 sticky top-0 transition-transform duration-300 shadow-sm ${show} ${baground}`}
+            className={`w-full h-[60px] md:h-[80px] max-md:bg-white flex items-center justify-between z-20 max-md:sticky  top-0 transition-transform duration-300 max-md:shadow-sm  ${show} ${baground}`}
         >
             <Wrapper className="h-[60px] flex justify-between items-center">
                 <Link href="/">
