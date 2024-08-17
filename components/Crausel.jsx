@@ -67,7 +67,7 @@ class DemoCarousel extends Component {
                 </Carousel>
 
                 <div className='paddingX py-8 '>
-                    <h1 className=' md:hidden text-xl font-inter py-4'>
+                    <h1 className=' text-xl md:text-2xl font-inter py-4'>
                         Search In Your City
                     </h1>
 

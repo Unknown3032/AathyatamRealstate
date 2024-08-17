@@ -7,7 +7,7 @@ const SelectFilter = () => {
 
             <div className='spaddingY  my-3'>
                 <div className="flex justify-between gap-2 md:w-[80%] flex-wrap md:flex-nowrap">
-                    <Select color="blue" label="Select State">
+                    <Select color="purple" label="Select State">
                         <Option>Material Tailwind HTML</Option>
                         <Option>Material Tailwind React</Option>
                         <Option>Material Tailwind Vue</Option>
@@ -32,7 +32,7 @@ const SelectFilter = () => {
             </div>
 
             <div className=' flex justify-center my-2'>
-                <button className='btn-dark spaddingY'>
+                <button className='btn-dark spaddingY md:w-auto w-full'>
                     Search
                 </button>
             </div>
