@@ -1,4 +1,4 @@
-import DemoCarousel from "@/Components/Crausel";
+import DemoCarousel from "@/components/Crausel";
 
 
 
