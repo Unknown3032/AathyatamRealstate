@@ -16,5 +16,30 @@
         @apply font-inter font-normal text-black bg-white;
     }
 
+    ::selection {
+        @apply bg-purple/30;
+    }
+
+    section {
+        @apply py-4 px-[5vw] md:px-[7vw] lg:px-[10vw];
+    }
+
+    .paddingX {
+        @apply px-[2vw];
+    }
+
+    .spaddingY {
+        @apply py-[1vw];
+    }
+
+    .btn-dark {
+        @apply whitespace-nowrap bg-black text-white rounded-full py-3 px-6 text-xl capitalize hover:bg-opacity-80;
+    }
+
+    .btn-light {
+        @apply btn-dark bg-grey text-black;
+    }
+
+
 
 }

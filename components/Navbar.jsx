@@ -34,7 +34,7 @@ const Navbar = () => {
 
     const controlNavbar = () => {
 
-        if (lastScrollY) {
+        if (window.scrollY > 20) {
             setShow("shadow-sm sticky");
             setBaground(" bg-white ")
         }
@@ -65,9 +65,9 @@ const Navbar = () => {
         <header
             className={`w-full h-[60px] md:h-[80px] max-md:bg-white flex items-center justify-between z-20 max-md:sticky  top-0 transition-transform duration-300 max-md:shadow-sm  ${show} ${baground}`}
         >
-            <Wrapper className="h-[60px] flex justify-between items-center">
+            <Wrapper className="h-full flex justify-between items-center">
                 <Link href="/">
-                    <img src="/hindu.png" className="w-[85px]" />
+                    <img src="/logo.png" className="md:w-[180px] w-[120px]" />
                 </Link>
                 {/* menu for desktop  */}
                 <Menu
