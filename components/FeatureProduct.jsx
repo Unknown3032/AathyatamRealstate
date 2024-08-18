@@ -34,7 +34,7 @@ const FeatureProduct = () => {
 
             {/* image  */}
             <div className="md:w-[60%] w-full lg:bg-grey">
-                <img className="object-cover" src={'/featureimg.jpg'} alt="" />
+                <img className="object-cover hover:cursor-pointer duration-300 hover:opacity-70 h-full w-full" src={'/featureimg.jpg'} alt="" />
             </div>
 
 

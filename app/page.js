@@ -22,6 +22,9 @@ export default function Home() {
 
       {/* product image  */}
       <div>
+        <h1 className='paddingX text-xl md:text-2xl font-inter pt-10 pb-4'>
+          Latest Land
+        </h1>
         <ProductCard />
       </div>
 

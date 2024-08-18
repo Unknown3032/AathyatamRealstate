@@ -63,7 +63,7 @@ const Navbar = () => {
 
     return (
         <header
-            className={`w-full h-[60px] md:h-[80px] max-md:bg-white flex items-center justify-between z-20 max-md:sticky  top-0 transition-transform duration-300 max-md:shadow-sm  ${show} ${baground}`}
+            className={`w-full h-[60px] md:h-[80px] bg-white shadow-sm sticky flex items-center justify-between z-20 max-md:sticky  top-0 transition-transform duration-300 max-md:shadow-sm  md:${show} md:${baground}`}
         >
             <Wrapper className="h-full flex justify-between items-center">
                 <Link href="/">
