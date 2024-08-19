@@ -44,7 +44,7 @@ const ProductSlider = ({ lands }) => {
                 {
                     lands?.map((land, i) => {
                         return (
-                            <Card className="w-full max-w-[26rem]  ">
+                            <Card key={i} className="w-full max-w-[26rem]  ">
                                 <CardHeader floated={false} className="hover:opacity-70 duration-300 cursor-pointer object-cover">
                                     <img
                                         className='w-full'
