@@ -13,6 +13,7 @@ import { VscChromeClose } from "react-icons/vsc";
 import { AnimatePresence, motion } from "framer-motion";
 import { fadeIn } from "@/varient";
 
+
 //components
 import Menu from "./Menu";
 import Wrapper from "./Wrapper";
@@ -24,7 +25,7 @@ const Navbar = () => {
 
     const [mobileMenu, setMobileMenu] = useState(false);
     const [showCatMenu, setShowCatMenu] = useState(false);
-    const [show, setShow] = useState("translate-y-0 absolute");
+    const [show, setShow] = useState("translate-y-0 md:absolute");
     const [lastScrollY, setLastScrollY] = useState(0);
     const [categories, setCategories] = useState(null);
     const [cartItems, setCartItems] = useState()
@@ -34,20 +35,15 @@ const Navbar = () => {
 
     const controlNavbar = () => {
 
-        if (window.scrollY > 20) {
-            setShow("shadow-sm sticky");
-            setBaground(" bg-white ")
-        }
-
         if (window.scrollY > 150) {
             if (window.scrollY > lastScrollY && !mobileMenu) {
                 setShow("-translate-y-[80px] ");
+                setBaground(" bg-white ")
             } else {
                 setShow("shadow-sm sticky");
             }
-            setBaground(" bg-white ")
         } else {
-            setShow("translate-y-0 absolute");
+            setShow("translate-y-0 md:absolute");
             setBaground("md:bg-transparent")
         }
         setLastScrollY(window.scrollY);
@@ -63,7 +59,7 @@ const Navbar = () => {
 
     return (
         <header
-            className={`w-full h-[60px] md:h-[80px] bg-white shadow-sm sticky flex items-center justify-between z-20 max-md:sticky  top-0 transition-transform duration-300 max-md:shadow-sm  md:${show} md:${baground}`}
+            className={`w-full h-[60px] md:h-[80px] bg-white sticky flex items-center justify-between z-20   top-0 transition-transform duration-300  ${show} ${baground}  `}
         >
             <Wrapper className="h-full flex justify-between items-center">
                 <Link href="/">
