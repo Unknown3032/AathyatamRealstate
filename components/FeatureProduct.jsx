@@ -38,8 +38,8 @@ const FeatureProduct = () => {
             </div>
 
 
-            <Card variant="gradient"
-                className="md:w-[40%] lg:pl-5 w-full md:p-8 py-8  rounded-none lg:bg-grey shadow-none "
+            <Card variant="gradient "
+                className="md:w-[40%] lg:pl-5 paddingX  w-full md:p-8 py-8  rounded-none lg:bg-grey shadow-none "
             >
                 <div
                     className="m-0 mb-8 w-full rounded-none border-b -mt-4 lg:mt-0 border-black/10 pb-4 lg:pb-8 md:text-center"

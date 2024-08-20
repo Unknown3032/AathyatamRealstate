@@ -32,13 +32,14 @@ const ProductSlider = ({ lands }) => {
     };
 
     return (
-        <div className='w-full paddingX flex'>
+        <div className='w-full  flex'>
             <Carousel
                 responsive={responsive}
-                containerClass=" mb-6 paddingX flex gap-5 w-full items-center "
+                containerClass=" mb-6  flex gap-5 w-full items-center "
                 itemClass=" w-full md:px-2 "
                 autoPlay
                 autoPlaySpeed={3000}
+                arrows={false}
             >
 
                 {

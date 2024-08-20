@@ -1,6 +1,7 @@
 import DemoCarousel from "@/components/Crausel";
 import FeatureProduct from "@/components/FeatureProduct";
 import ProductCard from "@/components/ProductCard";
+import Teamtestonomials from "@/components/Teamtestonomials";
 
 
 
@@ -21,11 +22,19 @@ export default function Home() {
       </div>
 
       {/* product image  */}
-      <div>
-        <h1 className='paddingX text-xl md:text-2xl font-inter pt-10 pb-4'>
+      <div className="paddingX">
+        <h1 className=' text-xl md:text-2xl font-inter pt-10 pb-4'>
           Latest Land
         </h1>
         <ProductCard />
+      </div>
+
+      {/* Team Testonomials  */}
+      <div className="paddingX">
+        <h1 className=' text-xl md:text-2xl font-inter pt-10 pb-4'>
+          Our Team
+        </h1>
+        <Teamtestonomials />
       </div>
 
     </div>
