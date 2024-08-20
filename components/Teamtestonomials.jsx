@@ -58,11 +58,11 @@ const Teamtestonomials = () => {
 
 
     return (
-        <div className="flex gap-5 md:py-8 py-4">
+        <div className="flex gap-5 md:py-8 py-4  w-full">
 
             <Carousel
                 responsive={responsive}
-                containerClass=" mb-6  flex gap-5 w-full items-center "
+                containerClass=" mb-6  flex gap-5 w-full pl-5  "
                 itemClass=" w-full md:px-2 "
                 autoPlay
                 autoPlaySpeed={2000}
