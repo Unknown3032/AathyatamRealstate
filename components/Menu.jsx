@@ -4,7 +4,7 @@ import { BsChevronDown } from "react-icons/bs";
 
 const data = [
     { id: 1, name: "Home", url: "/" },
-    { id: 2, name: "Shop", url: "/products" },
+    { id: 2, name: "Land", url: "/all-lands" },
     { id: 4, name: "Blog", url: "/blog" },
 ];
 
