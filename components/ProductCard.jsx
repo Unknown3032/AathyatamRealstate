@@ -14,7 +14,8 @@ const demoLands = [
 
 const ProductCard = () => {
     return (
-        <div className="pl-5">
+        <div
+            className="">
             <ProductSlider lands={demoLands} />
         </div>
     )

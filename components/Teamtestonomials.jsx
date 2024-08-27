@@ -1,5 +1,6 @@
 'use client'
 
+import FadeIn from "@/common/fadeIn";
 import {
     Card,
     CardHeader,
@@ -73,35 +74,37 @@ const Teamtestonomials = () => {
                 {
                     demoData.map((data, i) => {
                         return (
-                            <Card key={i} color="transparent" shadow={false} className="w-full max-w-[26rem] shadow-md p-5">
-                                <CardHeader
-                                    color="transparent"
-                                    floated={false}
-                                    shadow={false}
-                                    className="mx-0 flex items-center gap-4 pt-0 pb-8"
-                                >
-                                    <Avatar
-                                        size="lg"
-                                        variant="circular"
-                                        src={data?.url}
-                                        alt={data?.name}
-                                    />
-                                    <div className="flex w-full flex-col gap-0.5">
-                                        <div className="flex items-center justify-between">
-                                            <Typography variant="h5" color="blue-gray">
-                                                {data?.name}
-                                            </Typography>
+                            <FadeIn key={i} delay={i * 0.3}>
+                                <Card color="transparent" shadow={false} className="w-full max-w-[26rem] shadow-md p-5">
+                                    <CardHeader
+                                        color="transparent"
+                                        floated={false}
+                                        shadow={false}
+                                        className="mx-0 flex items-center gap-4 pt-0 pb-8"
+                                    >
+                                        <Avatar
+                                            size="lg"
+                                            variant="circular"
+                                            src={data?.url}
+                                            alt={data?.name}
+                                        />
+                                        <div className="flex w-full flex-col gap-0.5">
+                                            <div className="flex items-center justify-between">
+                                                <Typography variant="h5" color="blue-gray">
+                                                    {data?.name}
+                                                </Typography>
 
+                                            </div>
+                                            <Typography color="blue-gray">Frontend Lead @ Google</Typography>
                                         </div>
-                                        <Typography color="blue-gray">Frontend Lead @ Google</Typography>
-                                    </div>
-                                </CardHeader>
-                                <CardBody className="mb-6 p-0">
-                                    <Typography>
-                                        &quot;{data?.des}&quot;
-                                    </Typography>
-                                </CardBody>
-                            </Card>
+                                    </CardHeader>
+                                    <CardBody className="mb-6 p-0">
+                                        <Typography>
+                                            &quot;{data?.des}&quot;
+                                        </Typography>
+                                    </CardBody>
+                                </Card>
+                            </FadeIn>
                         )
                     })
                 }

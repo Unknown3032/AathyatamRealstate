@@ -50,10 +50,18 @@ const Navbar = () => {
 
     useEffect(() => {
         window.addEventListener("scroll", controlNavbar);
+
+        const html = document.querySelector("html");
+        if (html) {
+            html.style.overflow = mobileMenu ? "hidden" : "auto";
+        }
+
         return () => {
             window.removeEventListener("scroll", controlNavbar);
         };
-    }, [lastScrollY]);
+
+
+    }, [lastScrollY, mobileMenu]);
 
 
     return (

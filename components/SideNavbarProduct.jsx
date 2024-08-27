@@ -4,6 +4,10 @@ import { useEffect, useState } from "react";
 import { VscClose } from "react-icons/vsc";
 import { Slider } from "@material-tailwind/react";
 
+//animation
+import { AnimatePresence, motion } from "framer-motion";
+import { fadeIn } from "@/varient";
+
 
 const states = [
     { name: "Delhi" },
@@ -49,6 +53,7 @@ const SideNavbarProduct = ({ sidenavBar, setSidenavBar }) => {
 
 
     return (
+
         <div className={` w-full md:w-72 h-full absolute md:block  pb-20 bg-white z-20 md:z-10 ${sidenavBar ? 'flex' : 'hidden'} `}>
             <aside id="sidebar-multi-level-sidebar" className={` absolute mt-5 bg-white md:top-32 left-0 z-40 md:w-72 w-full h-auto md:h-auto md:${controlSideNav} `} aria-label="Sidebar">
 
