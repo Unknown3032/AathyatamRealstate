@@ -1,58 +1,66 @@
 import React, { useContext } from 'react'
 import Link from 'next/link'
+import { UserContext } from '@/app/layout'
+
+import { motion, AnimatePresence } from 'framer-motion';
+import { fadeIn } from '@/varient';
+
+import { removeFromSession } from '@/common/SessionFunc';
 
 // icons 
 import { LuFileEdit } from 'react-icons/lu'
 import { RiShieldUserLine } from "react-icons/ri";
 import { MdOutlineSpeed } from "react-icons/md";
 import { GoGear, GoSignOut } from "react-icons/go";
-import { IoCardSharp } from "react-icons/io5";
-import { MdEditDocument } from "react-icons/md";
 
-const UserNavigation = ({ user, setUser }) => {
+const UserNavigation = () => {
+
+    let { userAuth: { username }, setUserAuth, setCriteria } = useContext(UserContext)
 
     const handleSignOut = () => {
-        localStorage.removeItem("user")
-        setUser(null)
+        removeFromSession("user")
+        setUserAuth({ token: null })
     }
 
     return (
-        <div
+        <motion.div
+            initial='hidden'
+            animate='show'
+            exit='hidden'
             className='absolute right-0 z-50'
         >
-
             <div className='bg-white absolute right-0 border border-grey w-60 duration-200'>
-                <Link href={`/myaccount`} className='flex link items-center gap-2 pl-8 py-4' >
+                <Link href={'/Editor/empty'} className='flex gap-2 link md:hidden pl-8 py-4  items-center' >
+                    <LuFileEdit className='text-2xl' />
+                    <p>write</p>
+                </Link>
+
+                <Link href={`/user/${username}`} className='flex link items-center gap-2 pl-8 py-4' >
                     <RiShieldUserLine className='text-2xl' />
-                    <p>My Account</p>
+                    <p>Profile</p>
                 </Link>
 
-                <Link href={`/myorders`} className='flex link items-center gap-2 pl-8 py-4' >
-                    <IoCardSharp className='text-2xl' />
-                    <p>Orders</p>
+                <Link href={`/dashboard/blogs`} className='flex link items-center gap-2 pl-8 py-4' >
+                    <MdOutlineSpeed className='text-2xl' />
+                    <p>Dashboard</p>
                 </Link>
 
-                <Link href={`/createBlog`} className='flex link items-center gap-2 pl-8 py-4' >
-                    <MdEditDocument className='text-2xl' />
-                    <p>Write</p>
-                </Link>
-
-                {/* <Link href={`/`} className='flex link items-center gap-2 pl-8 py-4' >
+                <Link href={`/settings/editProfile`} className='flex link items-center gap-2 pl-8 py-4' >
                     <GoGear className='text-2xl' />
                     <p>Settings</p>
-                </Link> */}
+                </Link>
 
                 <span className='absolute border-t border-grey w-full pl-8 py-4'></span>
                 <button
                     onClick={handleSignOut}
                     className='text-left p-4 py-4 pl-8 w-full hover:bg-grey'>
                     <h1 className='font-bold text-xl mb-1'>Signout</h1>
-                    <p className='text-dark-grey'>@{user?.data?.data.username}</p>
+                    <p className='text-dark-grey'>@{username}</p>
                 </button>
 
             </div>
 
-        </div>
+        </motion.div>
     )
 }
 

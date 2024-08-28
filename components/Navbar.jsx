@@ -1,6 +1,7 @@
 'use client'
-import React, { useEffect, useState } from 'react'
 import Link from "next/link";
+import { UserContext } from '@/app/layout';
+import React, { useContext, useEffect, useState } from 'react'
 
 
 //icons 
@@ -33,6 +34,8 @@ const Navbar = () => {
     const [baground, setBaground] = useState("md:bg-transparent")
 
 
+    const { userAuth, userAuth: { token, profile_img }, setUserAuth } = useContext(UserContext);
+
     const controlNavbar = () => {
         if (window.scrollY > 150) {
             if (window.scrollY > lastScrollY && !mobileMenu) {
@@ -47,6 +50,7 @@ const Navbar = () => {
         }
         setLastScrollY(window.scrollY);
     };
+
 
     useEffect(() => {
         window.addEventListener("scroll", controlNavbar);
@@ -113,24 +117,38 @@ const Navbar = () => {
                     {/* Icon end
 
                 {/* Icon start */}
-                    <Link href="/cart">
-                        <div className="w-8 md:w-12 h-8 md:h-12 rounded-full flex justify-center items-center hover:bg-black/[0.05] cursor-pointer relative">
-                            <BsCart className="text-[15px] md:text-[20px]" />
-                            {cartItems && Object.keys(cartItems)?.length > 0 &&
-                                <div className="h-[14px] md:h-[18px] min-w-[14px] md:min-w-[18px] rounded-full bg-red-600 absolute top-1 left-5 md:left-7 text-white text-[10px] md:text-[12px] flex justify-center items-center px-[2px] md:px-[5px]">
-                                    {Object.keys(cartItems)?.length}
-                                </div>
-                            }
-                        </div>
-                    </Link>
                     {/* Icon end */}
 
-                    {<div className="group w-8 md:w-12 h-8 md:h-12 rounded-full flex flex-col justify-center items-center hover:bg-black/[0.05] cursor-pointer relative ">
-                        <Link href={'/signIn'}>
-                            <IoLogInOutline className="text-[19px] md:text-[24px]" />
-                        </Link>
-                    </div>
+                    {
+                        token ?
+                            <>
+                                <div className='relative'
+                                    onMouseEnter={() => setUserNavigate(true)}
+                                    onMouseLeave={() => setUserNavigate(false)}
+                                    onClick={() => setUserNavigate(!userNavigate)}
+                                >
+                                    <button className='w-12 h-12 mt-1'>
+                                        <img className='w-full h-full rounded-full object-cover' src={profile_img} alt='profile' />
+                                    </button>
+                                    {
+                                        userNavigate ?
+                                            <UserNavigation /> :
+                                            ""
+                                    }
+                                </div>
+                            </>
+                            :
+                            <div className="group w-8 md:w-12 h-8 md:h-12 rounded-full flex flex-col justify-center items-center hover:bg-black/[0.05] cursor-pointer relative ">
+                                <Link href={'/login'}>
+                                    <IoLogInOutline className="text-[19px] md:text-[24px]" />
+                                </Link>
+                            </div>
                     }
+
+
+
+
+
 
                     {/* Mobile icon start */}
                     <div className="w-8 md:w-12 h-8 md:h-12 rounded-full flex md:hidden justify-center items-center hover:bg-black/[0.05] cursor-pointer relative -mr-2">
@@ -148,8 +166,8 @@ const Navbar = () => {
                     </div>
                     {/* Mobile icon end */}
                 </div>
-            </Wrapper>
-        </header>
+            </Wrapper >
+        </header >
     )
 }
 

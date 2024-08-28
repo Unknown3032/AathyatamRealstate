@@ -46,7 +46,7 @@ const ProductSlider = ({ lands }) => {
                 {
                     lands?.map((land, i) => {
                         return (
-                            <FadeIn delay={i * 0.4} key={i}>
+                            <FadeIn delay={0.5} key={i}>
                                 <Card className="w-full max-w-[26rem]  ">
                                     <CardHeader floated={false} className="hover:opacity-70 duration-300 cursor-pointer object-cover">
                                         <img

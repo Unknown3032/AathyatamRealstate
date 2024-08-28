@@ -74,7 +74,7 @@ const Teamtestonomials = () => {
                 {
                     demoData.map((data, i) => {
                         return (
-                            <FadeIn key={i} delay={i * 0.3}>
+                            <FadeIn key={i} delay={0.5}>
                                 <Card color="transparent" shadow={false} className="w-full max-w-[26rem] shadow-md p-5">
                                     <CardHeader
                                         color="transparent"
